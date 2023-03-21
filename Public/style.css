@@ -1,0 +1,166 @@
+/* Image by <a href="https://www.freepik.com/free-vector/3d-abstract-background_30350398.htm#query=minimalist%20wallpaper&position=3&from_view=keyword&track=ais">Freepik</a> */
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300&display=swap');
+/* font-family: 'Catamaran', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+/* font-family: 'Roboto', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap');
+/* font-family: 'Rubik Iso', cursive; */
+
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+body {
+    /* background-image: url('https://i.imgur.com/dKqqF5U.jpg'); */
+    background: #ffffff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #a22a2a;
+}
+
+a:hover {
+    color: #ff2a2a;
+}
+
+.logo {
+    font-family: 'Rubik Iso', cursive;
+    background-color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    user-select: none;
+}
+
+.header {
+    display: table;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: #1d1d1d;
+}
+
+.menu_item {
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff;
+    display: inline-flex;
+    padding: 0;
+    width: 150px;
+    justify-content: center;
+}
+
+.menu_item:hover {
+    background-color: #707070;
+    cursor: pointer;
+    color: #000000;
+}
+
+.menu_link {
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    width: 100%;
+    color: #ffffff;
+}
+
+.menu_link:hover {
+    color: #000000;
+}
+
+.workspace {
+    padding: 20px;
+    border: 1px solid #1d1d1d;
+    box-shadow: 1px 1px #1d1d1d7a;
+    border-radius: 10px;
+    background-color: #1d1d1d1d;
+    margin: 20px;
+}
+
+.cookie_consent_box {
+    display: none;
+    background: #3d3d3d;
+    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 500px;
+    max-width: 85%;
+    border: 1px solid #1d1d1d;
+    border-radius: 5px;
+    cursor: default;
+    animation: appear 1s forwards;
+}
+
+.close_button {
+    cursor: pointer;
+    margin-left: 15px;
+    color: #fff;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.close_button:hover {
+    color: #f00;
+}
+
+#latest_articles {
+    display: table;
+    width: 100%;
+    /* margin: auto;
+    text-align: center; */
+}
+
+.article_container {
+    width: 200px;
+    border: 1px solid #5e5e5e;
+    padding: 0;
+    margin-right: 50px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.article_container:hover {
+    /* filter: drop-shadow(22px 18px 4px #000); */
+    box-shadow: 2px 2px #0000007a;
+}
+
+.article_url {
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    display: block;
+}
+
+.article_thumbnail {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+.article_title, .article_title:hover {
+    margin-top: 10px;
+    color: #000000;
+}
+
+.article_author, .article_author:hover {
+    font-size: 15px;
+    color: gray;
+    margin-left: 10px;
+}
