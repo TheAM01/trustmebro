@@ -66,7 +66,7 @@ function routes (app, dir, ext) {
     });
 
     app.post('/create_post', (req, res) => {
-        createPost(req, res);
+        createPost(req, res, dir);
     })
 
     // Notes n stuff
