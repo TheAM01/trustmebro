@@ -201,6 +201,33 @@ function socketHandler (socket, io, store) {
 
     })
 
+    socket.on('home_articles', () => {
+
+        const articlesDirectory = './Public/Posts/';
+        let articles = fs.readdirSync(articlesDirectory);
+        let articleArr = [];
+
+        articles.forEach((a) => {
+            const post = JSON.parse(fs.readFileSync(`${articlesDirectory}${a}`, 'utf-8'));
+            articleArr.push(post);
+        });
+
+        io.to(socket.id).emit('home_articles', articleArr)
+
+    });
+
+    socket.on('get_article', (data) => {
+
+        const articles = fs.readdirSync('./Public/Posts');
+
+        const search = articles.find(a => a.toLowerCase() === data.toLowerCase());
+
+        const article = fs.readFileSync(`./Public/Posts/${search}`, 'utf-8');
+
+        io.to(socket.id).emit('get_article', article);
+        
+    })
+
 }
 
 export default socketHandler;

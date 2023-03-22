@@ -5,18 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" type="image/x-icon" href="/cdn/pwfh_logo.png">
-    <title>Not found - TrustMeBro</title>
+    <title>Untitled - TrustMeBro</title>
 </head>
 
 <body>
-
-
-
-    <!-- <div class="open_nav_parent">
-        <div class="open_nav" onclick="openNav()">
-            &#9776;
-        </div>
-    </div> -->
 
     <div class="logo">TrustMeBro</div>
     
@@ -30,18 +22,34 @@
     </div>
 
     <div class="workspace">
-        <div class="intro_head">
-            <h1>Not found</h1>
+
+        <div class="intro_head" id="article_heading">
+            
         </div>
-        <div class="content">
-            <p>The requested URL is invalid. The link you have followed has probably been deleted or moved to a new URL. Return to <a href="/" style="color:#fc0b03;">home</a>?</p>
+
+        <img src="" id="article_thumbnail">
+
+        <div class="content" id="article_content" style="font-size: 20px;">
+                        
         </div>
+
+        Source: Trust me bro
+
     </div>
+
+    <div class="cookie_consent_box" id="cookie_consent_box">
+        <span class="close_button" onclick='acceptCookies(this)'>&times;</span>
+        This website uses cookies to enhance your browsing experience and store site data. By continuing to use our website, you agree to our
+        <a href="/policy/cookies" rel="external nofollow noopener" target="_blank">cookie policy.</a>
+    </div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="/script.js"></script>
     <script type="text/javascript">
         const socket = io()
-        validatePerson(socket)
+        getArticle(socket)
     </script>
+
+
 </body>
 </html>

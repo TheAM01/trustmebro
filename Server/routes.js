@@ -10,6 +10,8 @@ import getNotes from "./Functions/get-notes.js";
 import notesApi from "./Functions/notes-api.js";
 import changePassword, {confirmCode} from "./Functions/change-password.js";
 import {forgotPassword} from "./Functions/change-password.js";
+import getArticle from "./Functions/articles.js";
+import createPost from "./Functions/create-post.js";
 
 
 function routes (app, dir, ext) {
@@ -42,6 +44,10 @@ function routes (app, dir, ext) {
         res.sendFile(dir + 'Static/latest.html')
     });
 
+    app.get('/disclaimer', (req, res) => {
+        res.sendFile(dir + 'Static/disclaimer.html')
+    })
+
     app.get('/contact', (req, res) => {
         res.sendFile(dir + 'Static/contact.html');
     });
@@ -50,6 +56,18 @@ function routes (app, dir, ext) {
         if (req.query.override !== 'true') return res.sendFile(dir + 'Static/not-found.html')
         res.sendFile(dir + 'template.html')
     });
+
+    app.get('/article/:article', (req, res) => {
+        return getArticle(req, res, dir);
+    })
+
+    app.get('/super-secret-endpoint-to-create-a-post', (req, res) => {
+        return res.sendFile(dir + 'User/create-post.html')
+    });
+
+    app.post('/create_post', (req, res) => {
+        createPost(req, res);
+    })
 
     // Notes n stuff
 
@@ -84,7 +102,7 @@ function routes (app, dir, ext) {
         res.sendFile(dir + 'Static/not-found.html')
     });
 
-    // app.get('/')
+    
 
 }
 

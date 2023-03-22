@@ -17,9 +17,41 @@
         <div class="menu_item"><a href="/stories" class="menu_link">Stories</a></div>
         <div class="menu_item"><a href="/topic/politics" class="menu_link">Politics</a></div>
         <div class="menu_item"><a href="/topic/international" class="menu_link">International</a></div>
-        <div class="menu_item"><a href="/topic/politics" class="menu_link">Politics</a></div>
         <div class="menu_item"><a href="/disclaimer" class="menu_link">Disclaimer</a></div>
     </div>
+
+    <div class="workspace">
+        
+        <div class="intro_head">
+
+            <h1>Latest articles</h1>
+            
+        </div>
+
+        <div class="sub_content">
+
+            <div id="home_articles">
+
+                <img id='buffer' src="/cdn/buffering.png" alt="buffer">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="cookie_consent_box" id="cookie_consent_box">
+        <span class="close_button" onclick='acceptCookies(this)'>&times;</span>
+        This website uses cookies to enhance your browsing experience and store site data. By continuing to use our website, you agree to our
+        <a href="/policy/cookies" rel="external nofollow noopener" target="_blank">cookie policy.</a>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/script.js"></script>
+    <script>
+        const socket = io()
+        getHomeArticles(socket)
+    </script>
     
 </body>
 </html>

@@ -427,12 +427,9 @@ function openRandomNotes() {
 }
 
 function checkCookieConsent() {
-    console.log('hi')
 
     const consent = !!getCookie("user_cookie_consent");
     const cookieBox = document.getElementById("cookie_consent_box");
-
-    console.log(cookieBox)
 
     if (!cookieBox) return;
 
@@ -441,8 +438,6 @@ function checkCookieConsent() {
     } else {
         cookieBox.style.display = "inline";
     }
-
-    console.log('checked cookies')
 
 }
 
@@ -457,11 +452,11 @@ function getLatestArticles(socket) {
 
         data.forEach((item) => {
             articles.push(`
-                <div class="article_container">
-                    <a href="${item.url}" class="article_url">
-                        <img src="${item.image}" class="article_thumbnail">
-                        <div class="article_title">${item.title}</div>
-                        <a href="${item.authorLink}" class="article_author">${item.author}</a>
+                <div class="lt_article_container">
+                    <a href="${item.url}" class="lt_article_url">
+                        <img src="${item.image}" class="lt_article_thumbnail">
+                        <div class="lt_article_title">${item.title}</div>
+                        <a href="${item.authorLink}" class="lt_article_author">${item.author}</a>
                     </a>
                 </div>            
             `)
@@ -473,3 +468,61 @@ function getLatestArticles(socket) {
         document.getElementById('latest_articles').innerHTML = articles.join('\n')
     });
 }
+
+function getHomeArticles(socket) {
+
+    socket.emit('home_articles');
+
+    socket.on('home_articles', (data) => {
+        console.log(data);
+
+        let articles = [];
+
+        data.forEach((item) => {
+            articles.push(`
+                <div class="hm_article_container">
+                    <a href="${item.url}" class="hm_article_url">
+                        <div class="hm_article_thumbnail"><img src="${item.image}"></div>
+                        <div class="hm_article_content">
+                            <h3>${item.title}</h3>
+                            <p href="${item.authorLink}" class="hm_article_author">${item.author}</p>
+                        </div>                        
+                    </a>
+                </div>          
+            `)
+        
+        });
+
+        console.log(articles.join('\n'))
+
+        document.getElementById('home_articles').innerHTML = articles.join('\n')
+    });
+}
+
+function getArticle(socket) {
+     
+    const article = window.location.pathname.substring(1).split('/')[1] + '.txt';
+
+    socket.emit('get_article', article);
+
+    socket.on('get_article', (data) => {
+
+        const article = JSON.parse(data)
+
+        console.log(article)
+
+        document.getElementById('article_heading').innerHTML = `
+        <h1>${article.title}</h1> by <a href="${article.authorLink}">${article.author}</a>
+        `
+
+        document.getElementById('article_thumbnail').setAttribute('src', article.image);
+
+        document.getElementById('article_content').innerHTML = article.content
+
+        document.title = `${article.title} - TrustMeBro`
+
+
+    })
+}
+
+checkCookieConsent()
