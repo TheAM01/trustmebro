@@ -8,7 +8,6 @@ import fs from 'fs';
 
 import createRoutes from "./Server/routes.js";
 import socketHandler from "./Server/socket-handler.js";
-import db, {cb} from './Server/database.js';
 
 const app = express();
 const server = http.createServer(app);
@@ -109,4 +108,4 @@ async function writeDummyPosts () {
 
 }
 
-writeDummyPosts()
+// writeDummyPosts()

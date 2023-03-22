@@ -1,4 +1,3 @@
-import db from "./database.js";
 import bcrypt from "bcryptjs";
 
 function checkAuth (req, store) {

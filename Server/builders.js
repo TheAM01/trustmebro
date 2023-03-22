@@ -1,5 +1,4 @@
 import bcrypt from "bcryptjs";
-import db from "./database.js";
 
 
 class User {

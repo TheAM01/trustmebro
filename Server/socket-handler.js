@@ -1,6 +1,4 @@
-import db from './database.js'
 import util from "./util.js";
-import * as Console from "console";
 import fs from 'fs';
 
 String.prototype.capitalizeInitial = function () {
@@ -190,7 +188,17 @@ function socketHandler (socket, io, store) {
         let articles = fs.readdirSync(articlesDirectory);
         let articleArr = [];
 
-        articles.reverse();
+        articles.sort((a, b) => {
+
+            let aLastTen = a.substring(a.length - 14);
+            aLastTen = aLastTen.substring(0, aLastTen.length-4);
+
+            let bLastTen = b.substring(b.length - 14);
+            bLastTen = bLastTen.substring(0, bLastTen.length-4);
+
+            console.log([aLastTen, bLastTen])
+            return bLastTen - aLastTen;
+        })
 
         articles.forEach((a) => {
             const post = JSON.parse(fs.readFileSync(`${articlesDirectory}${a}`, 'utf-8'));
@@ -205,6 +213,7 @@ function socketHandler (socket, io, store) {
 
         const articlesDirectory = './Public/Posts/';
         let articles = fs.readdirSync(articlesDirectory);
+        // articles.reverse()
         let articleArr = [];
 
         articles.forEach((a) => {

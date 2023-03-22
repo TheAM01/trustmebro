@@ -18,8 +18,6 @@ function createPost (req, res, dir) {
         url: `/article/${body.title.toLowerCase().replaceAll(' ', '-')}-${date}`
     }
 
-    console.log(data);
-
     fs.writeFileSync(`./Public/Posts/${body.title.toLowerCase().replaceAll(' ', '-')}-${date}.txt`, JSON.stringify(data))
 
     res.redirect(data.url);

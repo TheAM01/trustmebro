@@ -517,7 +517,7 @@ function getArticle(socket) {
 
         document.getElementById('article_thumbnail').setAttribute('src', article.image);
 
-        document.getElementById('article_content').innerHTML = article.content
+        document.getElementById('article_content').innerHTML = article.content.replaceAll('\n', '<br>')
 
         document.title = `${article.title} - TrustMeBro`
 
