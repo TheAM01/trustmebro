@@ -463,10 +463,9 @@ function getLatestArticles(socket) {
         
         });
 
-        console.log(articles.join('\n'))
-
         document.getElementById('latest_articles').innerHTML = articles.join('\n')
     });
+
 }
 
 function getHomeArticles(socket) {
@@ -493,8 +492,6 @@ function getHomeArticles(socket) {
         
         });
 
-        console.log(articles.join('\n'))
-
         document.getElementById('home_articles').innerHTML = articles.join('\n')
     });
 }
@@ -504,12 +501,11 @@ function getArticle(socket) {
     const article = window.location.pathname.substring(1).split('/')[1] + '.txt';
 
     socket.emit('get_article', article);
+    socket.emit('home_articles');
 
     socket.on('get_article', (data) => {
 
         const article = JSON.parse(data)
-
-        console.log(article)
 
         document.getElementById('article_heading').innerHTML = `
         <h1>${article.title}</h1> by <a href="${article.authorLink}">${article.author}</a>
@@ -521,8 +517,28 @@ function getArticle(socket) {
 
         document.title = `${article.title} - TrustMeBro`
 
+    });
 
-    })
+    socket.on('home_articles', (data) => {
+
+        let articles = ["Recommended articles\n<br>"];
+
+        data.forEach((item) => {
+            articles.push(`
+                <div class="rc_article_container">
+                    <a href="${item.url}" class="rc_article_url">
+                        <img src="${item.image}" class="rc_article_thumbnail">
+                        <div class="rc_article_title">${item.title}</div>
+                        <a href="${item.authorLink}" class="rc_article_author">${item.author}</a>
+                    </a>
+                </div>            
+            `)
+        
+        });
+
+        document.getElementById('suggested_articles').innerHTML = articles.join('\n')
+
+    });
 }
 
 checkCookieConsent()

@@ -18,6 +18,13 @@ function createPost (req, res, dir) {
         url: `/article/${body.title.toLowerCase().replaceAll(' ', '-')}-${date}`
     }
 
+
+    // return console.log(checkProperties(data))
+
+    if(!checkProperties(data)) {
+        return res.redirect('/super-secret-endpoint-to-create-a-post?empty-fields=true')
+    }
+
     fs.writeFileSync(`./Public/Posts/${body.title.toLowerCase().replaceAll(' ', '-')}-${date}.txt`, JSON.stringify(data))
 
     res.redirect(data.url);
@@ -25,3 +32,13 @@ function createPost (req, res, dir) {
 }
 
 export default createPost
+
+
+function checkProperties(obj) {
+
+    for (let key in obj) {
+        if (obj[key] === '') return false;
+    }
+    
+    return true;
+}

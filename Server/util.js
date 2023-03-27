@@ -51,9 +51,11 @@ async function updatePerson(newUserData) {
 
 }
 
+
+
 export default {
     checkAuth,
     checkPerson,
     updatePerson,
-    checkPersonByEmail
+    checkPersonByEmail,
 }

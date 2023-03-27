@@ -196,8 +196,8 @@ function socketHandler (socket, io, store) {
             let bLastTen = b.substring(b.length - 14);
             bLastTen = bLastTen.substring(0, bLastTen.length-4);
 
-            console.log([aLastTen, bLastTen])
             return bLastTen - aLastTen;
+            
         })
 
         articles.forEach((a) => {
