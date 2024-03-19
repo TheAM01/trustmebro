@@ -17,26 +17,34 @@ html, body {
 /* width */
 ::-webkit-scrollbar {
     width: 15px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background: #2d2d2d; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: #666; 
-  }
+}
+
+:root {
+    --background: #213555;
+    --primary: #4F709C;
+    --secondary:#D8C4B6;
+    --accent: #F5EFE7;
+    --emphasis: #606C5D;
+}
 
 body {
     /* background-image: url('https://i.imgur.com/dKqqF5U.jpg'); */
-    background: #ffffff;
+    background: var(--background);
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -47,11 +55,11 @@ body {
 
 a {
     text-decoration: none;
-    color: #a22a2a;
+    color: var(--background);
 }
 
 a:hover {
-    color: #ff2a2a;
+    color: var(--accent);
 }
 
 .logo {
@@ -68,7 +76,7 @@ a:hover {
     padding: 0;
     margin: 0;
     width: 100%;
-    background-color: #1d1d1d;
+    background-color: var(--primary);
 }
 
 .menu_item {
@@ -82,7 +90,7 @@ a:hover {
 }
 
 .menu_item:hover {
-    background-color: #707070;
+    background-color: var(--accent);
     cursor: pointer;
     color: #000000;
 }
@@ -97,7 +105,7 @@ a:hover {
 }
 
 .menu_link:hover {
-    color: #000000;
+    color: var(--secondary);
 }
 
 .workspace {
@@ -105,7 +113,7 @@ a:hover {
     border: 1px solid #1d1d1d;
     box-shadow: 1px 1px #1d1d1d7a;
     border-radius: 10px;
-    background-color: #1d1d1d1d;
+    background-color: var(--primary);
     width: 70%;
     margin: auto;
     margin-top: 50px;
